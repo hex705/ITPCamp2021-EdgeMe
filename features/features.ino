@@ -74,14 +74,14 @@ void loop(){
 
   // threshold  *******************
         // define the threshold -- look at your trace -- every context is different
-        threshold = 500;
+        //threshold = 0;
             
         // are we above (1) or below (0) the  threshold ?
-        newThresholdState = checkThreshold (newFilteredValue, threshold);
+        //newThresholdState = checkThreshold (newFilteredValue, threshold);
         
   // change detection  *******************
         // did we change sides of the threshold? 
-        newChange = checkForChange( newThresholdState, oldThresholdState);
+        //newChange = checkForChange( newThresholdState, oldThresholdState);
       
   // edge detection  *******************
         // are we raising (1) or falling(0)   
@@ -106,116 +106,36 @@ void showFeatures(){
     Serial.print(newFilteredValue); // a string
     Serial.print(',');
 
-    Serial.print(threshold); // a number
-    Serial.print(',');
+//    Serial.print(threshold); // a number
+//    Serial.print(',');
 
     // threshold *****************
-        if ( newThresholdState == 0) {
-            Serial.print("low(dark) ");
-        } else {
-            Serial.print("high(bright) ");
-        } // end threshold
-        Serial.print(',');
+//        if ( newThresholdState == 0) {
+//            Serial.print("low(dark) ");
+//        } else {
+//            Serial.print("high(bright) ");
+//        } // end threshold
+//        Serial.print(',');
 
 
     // change *****************
-        if ( newChange == 1) {
-           Serial.print("changed "); 
-        } // end change
-        Serial.print(','); 
+//        if ( newChange == 1) {
+//           Serial.print("changed "); 
+//        } // end change
+//        Serial.print(','); 
 
  
     // edge *****************
-        if ( newEdgeState == 0 ) {
-            Serial.print("falling");
-        } else if (newEdgeState == 1) {
-            Serial.print("raising");
-        } // end edge
-        Serial.print(',');
+//        if ( newEdgeState == 0 ) {
+//            Serial.print("falling");
+//        } else if (newEdgeState == 1) {
+//            Serial.print("raising");
+//        } // end edge
+//        Serial.print(',');
 
     Serial.println();
 
 }//  end showFeatures;
-
-
-// void featuresToJS(){
-//
-//   // for Serial Monitor -- does not impact logic
-//   // note - meaning of crossing threshold is sensor dependant (light, distance, sound)
-//   if ( THRESHOLD_STATE == 0){
-//     currentBrightness = "dark";
-//   } else {
-//     currentBrightness = "light";
-//   }
-//
-//   // for Serial Monitor -- does not impact logic
-//   // note - meaning of crossing threshold is sensor dependant (light, distance, sound)
-//   switch (NEW_EDGE_STATE){
-//     case EDGE_LOW:    // 0
-//       currentEdge = "LOW";
-//       // do stuff
-//     break;
-//
-//     case EDGE_HIGH:   // 1
-//       currentEdge = "HIGH";
-//         // do stuff
-//     break;
-//
-//     case EDGE_RAISING: //2
-//       currentEdge = "RAISING";
-//         // do stuff
-//     break ;
-//
-//     case EDGE_FALLING: //3
-//       currentEdge = "FALLING";
-//         // do stuff
-//     break;
-//   } // end switch
-//
-//
-//   // THRESHOLD
-//       Serial.print(threshold); // a number
-//       Serial.print(',');
-//
-//       Serial.print(currentBrightness); // a string
-//       Serial.print(',');
-//
-//       // scaleUp for plotter
-//       THRESHOLD_STATE = ( THRESHOLD_STATE * 100 ) + 100; // map 0,1 to 100,200
-//       Serial.print(THRESHOLD_STATE);
-//       Serial.print(',');
-//
-//   // EDGES
-//       Serial.print(currentEdge); // string
-//       Serial.print(',');
-//
-//       Serial.print(EDGE_STATE); // number
-//       Serial.print(',');
-//
-//
-//   // READINGS -- show to help keep track of things
-//   Serial.print(sensorValue);
-//   Serial.print(',');
-//
-//   Serial.print(filteredValue);
-//   Serial.print(',');
-//
-//   Serial.println();
-// }
-
-//
-//void showFeaturesMonitor(){
-//  
-//  // THRESHOLD
-//      Serial.print(currentBrightness); // a string
-//      Serial.print(',');
-//
-//  // EDGES
-//      Serial.print(currentEdge); // string
-//      Serial.print(',');
-//
-//  Serial.println();
-//}
 
 
 // check if reading is above or below thresold

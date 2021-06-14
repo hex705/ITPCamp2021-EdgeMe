@@ -1,4 +1,4 @@
-// filter exmaples
+// filter examples
 // developed by steve.daniels@ryerson.ca
 // developed for ITP Camp 2021
 // created June 2021
@@ -66,7 +66,7 @@ int sensorPin = A0; // analog input pin for your sensor
 
 // flatten variables
     int sensorFlatten = -1;
-    int oldSensorAverage=-1;
+    int oldSensorAverage = -1;
 
 // thresholds -- for display -- features ?
     int low = 250, mid = 500, high = 750;
@@ -82,19 +82,16 @@ void setup(){
 void loop(){
 
   sensorValue = getSingleSensorReading(); // simple read
-  sensorSimpleAverage = getSimpleAverage(numberOfMeasuresToAverage);  // get average of 8 reads
-  sensorMovingAverage = getMovingAverage(sensorValue); // using currentReading
-  sensorEMA = getEMA(sensorValue); // EMA = exponential moving average
-  sensorMedian = getMedian(sensorValue);
-  sensorFlatten = getFlattener(sensorValue, oldSensorValue, 5 ); // last number is tolerance
+  //sensorSimpleAverage = getSimpleAverage(numberOfMeasuresToAverage);  // get average of 8 reads
+  //sensorMovingAverage = getMovingAverage(sensorValue); // using currentReading
+  //sensorEMA = getEMA(sensorValue); // EMA = exponential moving average
+  //sensorMedian = getMedian(sensorValue);
+  //sensorFlatten = getFlattener(sensorValue, oldSensorValue, 5 ); // last number is tolerance
 
   showFilterResults();
 
   delay(50); // slows loop to 20x / second
 
-  // store readings from this loop for later
-    oldSensorValue = sensorValue;
-    //oldSensorAverage = sensorAverage;
 }
 
 void showFilterResults(){
@@ -111,30 +108,20 @@ void showFilterResults(){
   Serial.print(sensorValue);
   Serial.print(',');
 
-  Serial.print(sensorSimpleAverage);
-  Serial.print(',');
+//  Serial.print(sensorSimpleAverage);
+//  Serial.print(',');
 
-  Serial.print(sensorMovingAverage);
-  Serial.print(',');
+//  Serial.print(sensorMovingAverage);
+//  Serial.print(',');
 
-  Serial.print(sensorEMA);
-  Serial.print(',');
+//  Serial.print(sensorEMA);
+//  Serial.print(',');
 
-  Serial.print(sensorMedian);
-  Serial.print(',');
+//  Serial.print(sensorMedian);
+//  Serial.print(',');
 
-  Serial.print(sensorFlatten);
-  Serial.print(',');
-
-  // threshold labels
-    Serial.print(low);
-    Serial.print(',');
-
-    Serial.print(mid);
-    Serial.print(',');
-
-    Serial.print(high);
-    Serial.print(',');
+//  Serial.print(sensorFlatten);
+//  Serial.print(',');
 
   Serial.println();
 }
