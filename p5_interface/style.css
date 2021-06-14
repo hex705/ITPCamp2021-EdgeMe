@@ -1,0 +1,126 @@
+
+#serialport {
+  padding: 10px;
+  width: 582px;
+  background-color: grey;
+}
+
+#info {
+  margin-left: 700px ;
+  margin-top:150px;
+  width: 300px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(200,200,200);
+  font-size: 20px;
+}
+
+#red{
+  color: rgb(255,0,0);
+}
+
+#green{
+  color: rgb(0,255,0);
+}
+
+#pink{
+  color: rgb(255,0,255);
+}
+
+#yellow{
+  color: rgb(255,255,0);
+}
+
+#teal {
+  color: rgb(0,255,255);
+}
+
+
+/* ton of boiler plate for slide switch ... so much */
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch*/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 150px; /*was 60ish px*/
+  height: 34px;
+  margin-left: 700px ;
+  margin-top:20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #09AA09;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;  /*26px*/
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(113px); /*all were 26*/
+  -ms-transform: translateX(113px);
+  transform: translateX(113px)
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*https://stackoverflow.com/questions/39846282/how-to-add-the-text-on-and-off-to-toggle-button*/
+
+/*------ ADDED CSS ---------*/
+.slider:after
+{
+ content:'RESISTOR';
+ color: white;
+ display: block;
+ position: absolute;
+ transform: translate(-50%,-50%);
+ top: 50%;
+ left: 50%;
+ font-size: 10px;
+ font-family: Verdana, sans-serif;
+}
+
+input:checked + .slider:after
+{
+  content:'SONAR';
+}
+
+/*--------- END --------*/
