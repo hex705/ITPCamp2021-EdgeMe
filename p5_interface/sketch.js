@@ -212,11 +212,12 @@ function serialEvent() {
   if (inData) {
     //.log(inData);
     sensorReadings = inData.split(",");
-    console.log(sensorReadings.length);
-
-    if ( sensorReadings.length <= 7 ){
+  //  console.log(sensorReadings.length);
+  //  console.log(sensorReadings);
+  //  if ( sensorReadings.length <= 7 ){
+  if ( (sensorReadings[3] == "low(dark) ") || (sensorReadings[3] == 'high(bright) ' )){
       //console.log("feature");
-      console.log(sensorReadings);
+    //  console.log(sensorReadings);
       DISPLAY_STATE = FEATURE;
       sensorValue = parseInt(sensorReadings[0]);
       filteredValue = parseInt(sensorReadings[1]);

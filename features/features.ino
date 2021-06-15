@@ -100,10 +100,10 @@ void loop(){
 void showFeatures(){
 
  
-    Serial.print(sensorValue); // a string
+    Serial.print(sensorValue); // a number
     Serial.print(',');
    
-    Serial.print(newFilteredValue); // a string
+    Serial.print(newFilteredValue); // a number
     Serial.print(',');
 
 //    Serial.print(threshold); // a number
